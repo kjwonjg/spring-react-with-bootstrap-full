@@ -1,7 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../style/style.css'
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
-ReactDOM.render(
-	<h1 className="testblue">App working</h1>,
-	document.querySelector('.container'));
+// Containers
+import Full from './containers/Full/';
+
+const history = createBrowserHistory();
+
+ReactDOM.render((
+	<HashRouter history={history}>
+		<Switch>
+			<Route path="/" name="Home" component={Full}/>
+		</Switch>
+	</HashRouter>
+), document.getElementById('root'))
